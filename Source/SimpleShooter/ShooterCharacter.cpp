@@ -16,12 +16,12 @@ AShooterCharacter::AShooterCharacter()
 
 void AShooterCharacter::MoveForward(const FInputActionValue& Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("MoveForward: %f"), Value.Get<float>());
+	AddMovementInput(GetActorForwardVector() * Value.Get<float>());
 }
 
 void AShooterCharacter::LookUp(const FInputActionValue& Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("LookUp: %f"), Value.Get<float>());
+	AddControllerPitchInput(Value.Get<float>());
 }
 
 // Called when the game starts or when spawned
