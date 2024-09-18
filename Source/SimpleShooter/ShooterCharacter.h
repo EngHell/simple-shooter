@@ -32,11 +32,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* MoveForwardAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
-	UInputAction* MoveRightAction;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* LookUpAction;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
-	UInputAction* LookRightAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 
