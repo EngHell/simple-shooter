@@ -26,17 +26,28 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
+	float MovementSpeed;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* MoveForwardAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputAction* MoveRightAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* LookUpAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputAction* LookRightAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 
 	UFUNCTION()
 	void MoveForward(const FInputActionValue& Value);
 	UFUNCTION()
+	void MoveRight(const FInputActionValue& Value);
+	UFUNCTION()
 	void LookUp(const FInputActionValue& Value);
+	UFUNCTION()
+	void LookRight(const FInputActionValue& Value);
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

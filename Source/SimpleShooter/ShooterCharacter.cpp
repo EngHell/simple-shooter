@@ -19,9 +19,20 @@ void AShooterCharacter::MoveForward(const FInputActionValue& Value)
 	AddMovementInput(GetActorForwardVector() * Value.Get<float>());
 }
 
+void AShooterCharacter::MoveRight(const FInputActionValue& Value)
+{
+	AddMovementInput(GetActorRightVector() * Value.Get<float>());
+}
+
 void AShooterCharacter::LookUp(const FInputActionValue& Value)
 {
-	AddControllerPitchInput(Value.Get<float>());
+	// -1 to remove inversion.
+	AddControllerPitchInput(Value.Get<float>() * -1);
+}
+
+void AShooterCharacter::LookRight(const FInputActionValue& Value)
+{
+	AddControllerYawInput(Value.Get<float>());
 }
 
 // Called when the game starts or when spawned
@@ -51,6 +62,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent);
 
 	Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveForward);
+	Input->BindAction(MoveRightAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveRight);
 	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookUp);
+	Input->BindAction(LookRightAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookRight);
 }
 
