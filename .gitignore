@@ -1,16 +1,39 @@
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-*.VC.db
-*.opensdf
-*.opendb
-*.sdf
-*.sln
+.idea
+#################################
+# Unreal Engine Generated Files #
+#################################
+/[Bb]uild
+/[Bb]uilds
+/Binaries
+/DerivedDataCache
+/Intermediate
+/Saved
+
+#################################
+# Visual Studio Generated Files #
+#################################
+# Cache Directory
+.vs
+# User Specific Files
+*.rsuser
 *.suo
-*.xcodeproj
-*.xcworkspace
-Content/Dynamic/Levels/FirstPersonExampleMap_BuiltData.uasset
-.vs/S05_TestingGrounds/v15/ipch/
-.vs/
+*.user
+*.userosscache
+*.sln.docstates
+# CPP Cache Files
+*.VC.db
+*.opendb
+*.opensdf
+*.sdf
+# Solution Files
+*.sln
+# VSCode Cache Directory
+.vscode
+# VSCode History Files
+**/.history
+
+#################################
+# Miscellaneous Generated Files #
+#################################
+# ADD AS NEED BE
 .idea
