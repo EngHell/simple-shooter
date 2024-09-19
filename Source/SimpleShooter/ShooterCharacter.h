@@ -37,13 +37,10 @@ public:
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 
 	UFUNCTION()
-	void MoveForward(const FInputActionValue& Value);
+	void MoveAround(const FInputActionValue& Value);
 	UFUNCTION()
-	void MoveRight(const FInputActionValue& Value);
-	UFUNCTION()
-	void LookUp(const FInputActionValue& Value);
-	UFUNCTION()
-	void LookRight(const FInputActionValue& Value);
+	void LookAround(const FInputActionValue& Value);
+
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

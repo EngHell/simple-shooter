@@ -14,29 +14,19 @@ AShooterCharacter::AShooterCharacter()
 
 }
 
-void AShooterCharacter::MoveForward(const FInputActionValue& Value)
+void AShooterCharacter::MoveAround(const FInputActionValue& Value)
 {
 	FVector2D MovementValue = Value.Get<FVector2D>();
 	AddMovementInput(GetActorForwardVector(), MovementValue.Y);
 	AddMovementInput(GetActorRightVector(), MovementValue.X);
 }
 
-void AShooterCharacter::MoveRight(const FInputActionValue& Value)
-{
-	AddMovementInput(GetActorRightVector() * Value.Get<float>());
-}
-
-void AShooterCharacter::LookUp(const FInputActionValue& Value)
+void AShooterCharacter::LookAround(const FInputActionValue& Value)
 {
 	FVector2D MouseValue = Value.Get<FVector2D>();
 	// -1 to remove inversion.
 	AddControllerPitchInput(MouseValue.Y * -1);
 	AddControllerYawInput(MouseValue.X);
-}
-
-void AShooterCharacter::LookRight(const FInputActionValue& Value)
-{
-	AddControllerYawInput(Value.Get<float>());
 }
 
 // Called when the game starts or when spawned
@@ -65,7 +55,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	
 	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent);
 
-	Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveForward);
-	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookUp);
+	Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveAround);
+	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAround);
 }
 
