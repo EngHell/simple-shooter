@@ -24,9 +24,10 @@ void AShooterCharacter::MoveAround(const FInputActionValue& Value)
 void AShooterCharacter::LookAround(const FInputActionValue& Value)
 {
 	FVector2D MouseValue = Value.Get<FVector2D>();
+	float DeltaTime = GetWorld()->GetDeltaSeconds();
 	// -1 to remove inversion.
-	AddControllerPitchInput(MouseValue.Y * -1);
-	AddControllerYawInput(MouseValue.X);
+	AddControllerPitchInput(MouseValue.Y * -1 * RotationRate * DeltaTime);
+	AddControllerYawInput(MouseValue.X * RotationRate * DeltaTime);
 }
 
 void AShooterCharacter::JumpCallback(const FInputActionValue& Value)

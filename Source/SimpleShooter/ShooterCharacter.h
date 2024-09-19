@@ -28,6 +28,8 @@ protected:
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float MovementSpeed;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	float RotationRate = 10;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* MoveForwardAction;
