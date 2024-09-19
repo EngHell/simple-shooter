@@ -30,6 +30,15 @@ void AShooterCharacter::LookAround(const FInputActionValue& Value)
 	AddControllerYawInput(MouseValue.X * RotationRate * DeltaTime);
 }
 
+void AShooterCharacter::LookAroundController(const FInputActionValue& Value)
+{
+	FVector2D MouseValue = Value.Get<FVector2D>();
+	float DeltaTime = GetWorld()->GetDeltaSeconds();
+	// -1 to remove inversion.
+	AddControllerPitchInput(MouseValue.Y * ControllerRotationRate * DeltaTime);
+	AddControllerYawInput(MouseValue.X * ControllerRotationRate * DeltaTime);
+}
+
 void AShooterCharacter::JumpCallback(const FInputActionValue& Value)
 {
 	ACharacter::Jump();
@@ -63,6 +72,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveAround);
 	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAround);
+	Input->BindAction(LookAroundControllerAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAroundController);
 	Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AShooterCharacter::JumpCallback);
 }
 

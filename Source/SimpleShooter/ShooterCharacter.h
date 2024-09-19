@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "ShooterCharacter.generated.h"
 
+struct FInputActionValue;
 class UInputAction;
 class UInputMappingContext;
 
@@ -30,11 +31,15 @@ public:
 	float MovementSpeed;
 	UPROPERTY(EditAnywhere, Category = "Input")
 	float RotationRate = 10;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	float ControllerRotationRate = 200;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* MoveForwardAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* LookUpAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputAction* LookAroundControllerAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* JumpAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
@@ -44,6 +49,8 @@ public:
 	void MoveAround(const FInputActionValue& Value);
 	UFUNCTION()
 	void LookAround(const FInputActionValue& Value);
+	UFUNCTION()
+	void LookAroundController(const FInputActionValue& Value);
 	UFUNCTION()
 	void JumpCallback(const FInputActionValue& Value);
 
