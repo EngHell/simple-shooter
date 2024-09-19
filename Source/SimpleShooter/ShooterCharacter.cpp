@@ -29,6 +29,11 @@ void AShooterCharacter::LookAround(const FInputActionValue& Value)
 	AddControllerYawInput(MouseValue.X);
 }
 
+void AShooterCharacter::JumpCallback(const FInputActionValue& Value)
+{
+	ACharacter::Jump();
+}
+
 // Called when the game starts or when spawned
 void AShooterCharacter::BeginPlay()
 {
@@ -57,5 +62,6 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AShooterCharacter::MoveAround);
 	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAround);
+	Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AShooterCharacter::JumpCallback);
 }
 

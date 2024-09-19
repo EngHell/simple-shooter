@@ -33,6 +33,8 @@ public:
 	UInputAction* MoveForwardAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* LookUpAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputAction* JumpAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 
@@ -40,6 +42,8 @@ public:
 	void MoveAround(const FInputActionValue& Value);
 	UFUNCTION()
 	void LookAround(const FInputActionValue& Value);
+	UFUNCTION()
+	void JumpCallback(const FInputActionValue& Value);
 
 	
 	// Called every frame
