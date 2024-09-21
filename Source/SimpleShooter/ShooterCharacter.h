@@ -44,6 +44,11 @@ public:
 	UInputAction* JumpAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Gun")
+	TSubclassOf<class AGun> GunClass;
+	UPROPERTY()
+	AGun* Gun;
 
 	UFUNCTION()
 	void MoveAround(const FInputActionValue& Value);
