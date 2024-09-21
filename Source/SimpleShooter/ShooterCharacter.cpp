@@ -51,6 +51,9 @@ void AShooterCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	Gun = GetWorld()->SpawnActor<AGun>(GunClass, GetActorLocation(), GetActorRotation());
+	GetMesh()->HideBoneByName(TEXT("weapon_r"), PBO_None);
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, TEXT("WeaponSocket"));
+	Gun->SetOwner(this);
 }
 
 // Called every frame
