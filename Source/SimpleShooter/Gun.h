@@ -16,6 +16,8 @@ public:
 	AGun();
 
 private:
+	UPROPERTY(EditAnywhere, Category="Gun")
+	float MaxRange = 1000.f;
 	
 	UPROPERTY(EditDefaultsOnly, Category="Components")
 	USceneComponent* Root;
