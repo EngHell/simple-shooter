@@ -21,6 +21,8 @@ private:
 	USceneComponent* Root;
 	UPROPERTY(EditDefaultsOnly, Category="Components")
 	USkeletalMeshComponent* Mesh;
+	UPROPERTY(EditDefaultsOnly, Category="Particles")
+	UParticleSystem* MuzzleFlashParticleSystem;
 	
 
 protected:
