@@ -25,6 +25,8 @@ private:
 	USkeletalMeshComponent* Mesh;
 	UPROPERTY(EditDefaultsOnly, Category="Particles")
 	UParticleSystem* MuzzleFlashParticleSystem;
+	UPROPERTY(EditDefaultsOnly, Category="Particles")
+	UParticleSystem* ImpactEffectParticleSystem;
 	
 
 protected:
