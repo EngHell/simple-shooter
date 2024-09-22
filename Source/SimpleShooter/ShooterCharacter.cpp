@@ -45,6 +45,16 @@ void AShooterCharacter::JumpCallback(const FInputActionValue& Value)
 	ACharacter::Jump();
 }
 
+void AShooterCharacter::PullTrigger(const FInputActionValue& Value)
+{
+	if(!Gun)
+	{
+		return;
+	}
+
+	Gun->PullTrigger();
+}
+
 // Called when the game starts or when spawned
 void AShooterCharacter::BeginPlay()
 {
@@ -79,5 +89,6 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	Input->BindAction(LookUpAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAround);
 	Input->BindAction(LookAroundControllerAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookAroundController);
 	Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AShooterCharacter::JumpCallback);
+	Input->BindAction(ShootAction, ETriggerEvent::Started, this, &AShooterCharacter::PullTrigger);
 }
 

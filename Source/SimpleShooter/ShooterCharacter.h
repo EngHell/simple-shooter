@@ -42,6 +42,8 @@ public:
 	UInputAction* LookAroundControllerAction;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* JumpAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputAction* ShootAction;
 	UPROPERTY(EditDefaultsOnly, Category="Enhanced Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 	
@@ -58,7 +60,8 @@ public:
 	void LookAroundController(const FInputActionValue& Value);
 	UFUNCTION()
 	void JumpCallback(const FInputActionValue& Value);
-
+	UFUNCTION()
+	void PullTrigger(const FInputActionValue& Value);
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
